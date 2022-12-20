@@ -8,13 +8,14 @@ export class UsersService {
   constructor(private databaseService: DatabaseService) {}
   create(createUserDto: CreateUserDto) {
     return this.databaseService.executeQuery(
-      `insert into hcd_users(first_name, last_name, email_id, passwd)
-      values($1, $2, $3, $4)`,
+      `select * from hcd_insert_user($1, $2, $3, $4, $5, $6)`,
       [
         createUserDto.first_name,
         createUserDto.last_name,
         createUserDto.email_id,
         createUserDto.passwd,
+        createUserDto.country_code,
+        createUserDto.phone_no,
       ],
     );
   }

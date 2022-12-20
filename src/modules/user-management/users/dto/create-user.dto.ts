@@ -12,4 +12,10 @@ export class CreateUserDto {
 
   @IsString()
   passwd: string;
+
+  @IsString()
+  country_code: string;
+
+  @IsString()
+  phone_no: string;
 }

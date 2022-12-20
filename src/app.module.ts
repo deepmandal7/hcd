@@ -3,6 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 import { LoggerModule } from 'nestjs-pino';
 import appConfig from './config/app-config';
 import dbConfig from './config/database-config';
+import securityConfig from './config/security-config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { DatabaseModule } from './database/database.module';
@@ -13,7 +14,7 @@ import { AuthModule } from './modules/auth-management/auth/auth.module';
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      load: [appConfig, dbConfig],
+      load: [appConfig, dbConfig, securityConfig],
     }),
     DatabaseModule,
     LoggerModule.forRoot({
